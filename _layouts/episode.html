@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="episode-page">
+  <h1>{{ page.title }}</h1>
+  <p class="meta">
+    {% if page.guest %}Guest: <strong>{{ page.guest }}</strong> &middot; {% endif %}
+    {{ page.date | date: "%B %d, %Y" }}
+    {% if page.tags %} &middot; {{ page.tags | join: ", " }}{% endif %}
+  </p>
+
+  <div class="video-embed">
+    <iframe
+      src="https://www.youtube.com/embed/{{ page.youtube_id }}"
+      title="{{ page.title }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="episode-description">
+    {{ content }}
+  </div>
+
+  <p><a href="{{ '/' | relative_url }}" class="back-link">&larr; Back to all reels</a></p>
+</article>

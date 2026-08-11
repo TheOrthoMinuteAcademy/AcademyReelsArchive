@@ -1,0 +1,25 @@
+---
+layout: default
+title: Home
+---
+<section class="filters">
+  <button class="filter-btn active" data-tag="all">All</button>
+  {% assign all_tags = "" | split: "" %}
+  {% for ep in site.episodes %}
+    {% for t in ep.tags %}{% unless all_tags contains t %}{% assign all_tags = all_tags | push: t %}{% endunless %}{% endfor %}
+  {% endfor %}
+  {% for t in all_tags %}
+    <button class="filter-btn" data-tag="{{ t }}">{{ t }}</button>
+  {% endfor %}
+</section>
+
+<section class="episode-grid">
+  {% assign sorted = site.episodes | sort: "date" | reverse %}
+  {% for ep in sorted %}
+    <div class="grid-item" data-tags="{{ ep.tags | join: ',' }}">
+      {% include episode-card.html episode=ep %}
+    </div>
+  {% endfor %}
+</section>
+
+<script src="{{ '/assets/js/filter.js' | relative_url }}"></script>

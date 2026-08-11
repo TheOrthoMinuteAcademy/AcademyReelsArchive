@@ -1,0 +1,11 @@
+<a class="episode-card" href="{{ include.episode.url | relative_url }}">
+  <div class="thumb-wrap">
+    <img src="https://img.youtube.com/vi/{{ include.episode.youtube_id }}/hqdefault.jpg" alt="{{ include.episode.title }}">
+    <span class="play-badge">&#9654;</span>
+  </div>
+  <div class="card-body">
+    <h3>{{ include.episode.title }}</h3>
+    {% if include.episode.guest %}<p class="guest">{{ include.episode.guest }}</p>{% endif %}
+    <p class="date">{{ include.episode.date | date: "%b %d, %Y" }}</p>
+  </div>
+</a>

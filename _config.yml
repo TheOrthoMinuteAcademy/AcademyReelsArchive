@@ -1,0 +1,22 @@
+title: "The Ortho Minute Academy Podcast Archive"
+description: "Reel archive for the Academy podcast."
+baseurl: ""            # leave blank unless your repo is NOT named username.github.io
+url: "https://TheOrthoMinuteAcademy.github.io"   # update with your GitHub username
+
+collections:
+  episodes:
+    output: true
+    permalink: /episodes/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "episodes"
+    values:
+      layout: "episode"
+
+plugins:
+  - jekyll-feed
+
+# sort newest episode first everywhere we loop over site.episodes
+sort_by: date
